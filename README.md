@@ -1,4 +1,4 @@
-# Vagrant-Webserser-Nginx
+# Vagrant-Webserver
 
 Pre-configured Vagrant Box based on Ubuntu Bionic 64bit
 
