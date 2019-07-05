@@ -22,5 +22,5 @@ run "vagrant up" in the repo root path after cloning.
 
 # Default IP address of the webserver after installation
 - 10.10.0.20
-- you can change the default IP address in the vagrant files & in the provision file (/provision.sh)
+- you can change the default IP address in the vagrant file & in the provision file (/provision.sh)
 
