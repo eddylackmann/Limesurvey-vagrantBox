@@ -1,0 +1,49 @@
+#
+# Vagrant server configuration
+#
+
+# You don't need to edit this file (unless you updated some how to php > 7.2).
+
+#
+
+server {
+
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+  root /var/www/public;
+
+	index index.php  index.html index.htm;
+
+	server_name _;
+
+
+  charset utf-8;
+
+
+  #avoid processing of calls to unexisting static files by yii
+  location ~ \.(js|css|png|jpg|gif|swf|ico|pdf|mov|fla|zip|rar)$ {
+      try_files $uri =404;
+  }
+
+  # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+  #
+  location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+	}
+
+	# deny access to .htaccess files, if Apache's document root
+	# concurs with nginx's one
+	#
+	location ~ /\.ht {
+		deny all;
+	}
+
+  # prevent nginx from serving dotfiles (.htaccess, .svn, .git, etc.)
+  location ~ /\. {
+      deny all;
+      access_log off;
+      log_not_found off;
+  }
+}
