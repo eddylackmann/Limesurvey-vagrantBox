@@ -71,6 +71,7 @@ apt-get install php7.2-fpm -y
 apt-get install php7.2-mbstring -y
 apt-get install php-curl -y
 apt-get install php-pclzip -y
+apt-get install php7.2-xml
 cp /var/www/configuration/php.ini /etc/php/7.2/fpm/php.ini
 
 echo " "
