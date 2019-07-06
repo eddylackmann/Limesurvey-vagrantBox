@@ -1,6 +1,6 @@
 # Vagrant-Webserver
 
-Pre-configured Vagrant Box based on Ubuntu Disco 64bit
+Pre-configured Vagrant Box based on Ubuntu Bionic 64bit
 
 # Pre-installation Requirements
 - Virtual Box
