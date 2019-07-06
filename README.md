@@ -4,7 +4,7 @@ Pre-configured Vagrant Box based on Ubuntu Disco 64bit
 
 # Pre-installation Requirements
 - Virtual Box
-- Vagrant 
+- Vagrant CLI
 
 # Installation
 run "vagrant up" in the repo root path after cloning.
