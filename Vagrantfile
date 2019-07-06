@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
 
   # Latest version of Ubuntu. Feel free to update it.
   # but, if it affects PHP version (>7.2), then you will need to update files_to_push/nginx_site_available/default
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "ubuntu/disco64"
   config.vm.provision "shell", path: "configuration/provision.sh"
 
   # This IP is reachable only from your computer, not from local network.
