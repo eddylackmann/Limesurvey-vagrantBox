@@ -3,6 +3,7 @@
 Pre-configured Vagrant Box based on Ubuntu Bionic 64bit
 
 # Pre-installation Requirements
+- Enable VT-x
 - Virtual Box
 - Vagrant CLI
 
