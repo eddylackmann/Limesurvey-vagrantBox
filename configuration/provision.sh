@@ -128,6 +128,9 @@ sleep 3s;
 
 #setup database
 mysql -u root -p$MysqlRootPass -e "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));"
+mysql -u root -p$MysqlRootPass -e "CREATE DATABASE $MysqlDBName;"
+mysql -u root -p$MysqlRootPass -e "CREATE USER '$MySqlDBUser'@'localhost' IDENTIFIED BY '$MySqlDBPassword';"
+mysql -u root -p$MysqlRootPass -e "GRANT ALL PRIVILEGES ON *.* TO '$MySqlDBUser'@'localhost' WITH GRANT OPTION;"
 echo " "
 echo " "
 echo " "
