@@ -14,14 +14,18 @@ run "vagrant up" in the repo root path after cloning.
 - Nginx 
 - Php7.2 & depencies
 - Mysql server
-- Adminer to manage Mysql DB 
+- Latest version (Master) of Limesurvey 
 
 # Default Mysql Login
+- MySql DB = "limesurvey"
+- MySql User = "limesurvey"
 - Mysql Root Password = "password"
-- MySql User = "user"
 - MySql User Password = "password"
 
 # Default IP address of the webserver after installation
-- 10.10.0.20
+- 10.0.0.40
 - you can change the default IP address in the vagrant file & in the provision file (/provision.sh)
 
+# Limesurvey Info
+- Visit Limesurvey at https://www.limesurvey.org
+- Git https://github.com/LimeSurvey/LimeSurvey

@@ -1,11 +1,11 @@
 #set Mysql login details
 MysqlRootPass="password"
-MysqlDBName="Mysql"
-MySqlDBUser="user"
+MysqlDBName="limesurvey"
+MySqlDBUser="limesurvey"
 MySqlDBPassword="password"
 
 #set Ip Adresse
-myIp="10.10.0.20"
+myIp="10.0.0.40"
 
 
 #install webserver packages
@@ -14,7 +14,7 @@ echo " "
 echo " "
 echo " "
 echo "+-----------------------------------+"
-echo "+ WELCOME TO VAGRANT WEBSERVER      +"
+echo "+ WELCOME TO LIMESURVEY VAGRANT     +"
 echo "+-----------------------------------+"
 echo " "
 echo " "
@@ -133,8 +133,23 @@ echo " "
 echo " "
 echo " "
 echo " "
+sleep 3s;
+echo " "
+echo " "
+echo " "
 echo "+----------------------+"
-echo "+ install Phpmyadmin   +"
+echo "+ install Limesurvey   +"
+echo "+----------------------+"
+echo " "
+echo " "
+echo " "
+
+git clone https://github.com/LimeSurvey/LimeSurvey.git /var/www/public
+echo "Limesurvey installed "
+echo " ##############"
+sleep 3s;
+echo "+----------------------+"
+echo "+ Restart Nginx        +"
 echo "+----------------------+"
 echo " "
 echo " "
@@ -143,12 +158,12 @@ echo " "
  # Start nGinx
 service nginx stop && service nginx start
 
-echo " "
-echo " "
-echo " "
-echo " "
-sleep 3s;
 
+
+echo " "
+echo " "
+echo " "
+echo " "
 echo " ______      ___   ____  _____  ________  ";
 echo "|_   _ \`.  .'   \`.|_   \|_   _||_   __  | ";
 echo "  | | \`. \/  .-.  \ |   \ | |    | |_ \_| ";
@@ -159,18 +174,25 @@ echo "                                          ";
 echo " "
 echo " "
 echo " "
-echo "PHP       [ok]"
-echo "NGINX     [ok]"
-echo "MYSQL DB  [ok] "
+echo "PHP        [ok]"
+echo "NGINX      [ok]"
+echo "MYSQL DB   [ok] "
+echo "Limesurvey [ok] "
 echo " "
 echo " "
 echo " "
 echo "You can connect to Webserver at: $myIp "
 echo "the webroot is /public "
-echo "Mysql login:user"
+echo "Mysql DB:$MysqlDBName"
+echo "Mysql login:$MySqlDBUser"
 echo "Mysql password: password "
 echo "mysql root password: password"
-echo "connect to Adminer to manage mysql DB at: $myIp/adminer"
 echo " "
 echo " "
 echo "connect to VM SSH in terminal: vagrant ssh"
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "

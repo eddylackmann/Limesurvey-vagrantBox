@@ -11,8 +11,8 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "configuration/provision.sh"
 
   # This IP is reachable only from your computer, not from local network.
-  config.vm.network "private_network", ip: "10.10.0.20"
-  config.vm.hostname = "vagrantWeb"
+  config.vm.network "private_network", ip: "10.0.0.40"
+  config.vm.hostname = "LimeVagrant"
 
   # The shared folder /var/www/ is not reachable via Internet
   # only /var/www/comfort/web is
@@ -20,6 +20,9 @@ Vagrant.configure("2") do |config|
 
   # Needed for Windows 10 host, so ubuntu package are reachable and we can install the VirtualBox Guest Additions
   config.vm.provider "virtualbox" do |vb|
+      vb.name = "Limesurvey-vagrant"
+      vb.memory = 2096
+      vb.cpus = 2
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 end
