@@ -1,5 +1,5 @@
 # Limesurvey-Vagrant
-Pre-configured Limesurvey Vagrant Box based on Ubuntu Bionic 64bit - Php 7.2 - latest Mysql & Nginx webserver
+Pre-configured Limesurvey(Latest Release) Vagrant Box based on Ubuntu Bionic 64bit - Php 7.2 - latest Mysql & Nginx webserver
 
 # Pre-installation Requirements
 - Enable VT-x
