@@ -7,7 +7,8 @@ Pre-configured Limesurvey Vagrant Box based on Ubuntu Bionic 64bit - Php 7.2 - l
 - Vagrant CLI
 
 # Installation
-run "vagrant up" in the repo root path after cloning.
+- Install the vagrant Ubuntu Bionic: vagrant init ubuntu/bionic64
+- run "vagrant up" in the repo root path after cloning.
 
 # Packages 
 - Nginx 
