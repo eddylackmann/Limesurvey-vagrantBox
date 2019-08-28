@@ -151,6 +151,12 @@ git clone https://github.com/LimeSurvey/LimeSurvey.git /var/www/public
 echo "Limesurvey installed "
 echo " ##############"
 sleep 3s;
+
+IFS=' ' read -r -a array <<< $(/usr/bin/git --git-dir /var/www/public/.git log --pretty=oneline | grep Release | head -n1); /usr/bin/git --git-dir /var/www/public/.git reset --hard "${array[0]}"
+sleep 3s;
+echo " "
+echo " "
+echo " "
 echo "+----------------------+"
 echo "+ Restart Nginx        +"
 echo "+----------------------+"
@@ -184,7 +190,7 @@ echo "Limesurvey [ok] "
 echo " "
 echo " "
 echo " "
-echo "You can connect to Webserver at: $myIp "
+echo "You can connect to Webserver at: http://$myIp "
 echo "the webroot is /public "
 echo "Mysql DB:$MysqlDBName"
 echo "Mysql login:$MySqlDBUser"
