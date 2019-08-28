@@ -3,8 +3,8 @@ Pre-configured Limesurvey Vagrant Box based on Ubuntu Bionic 64bit - Php 7.2 - l
 
 # Pre-installation Requirements
 - Enable VT-x
-- Virtual Box
-- Vagrant CLI
+- Install Virtual Box
+- Install Vagrant CLI
 
 # Installation
 - Install the vagrant Ubuntu Bionic: vagrant init ubuntu/bionic64
