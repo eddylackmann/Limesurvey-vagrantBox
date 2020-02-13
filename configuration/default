@@ -3,9 +3,8 @@ server {
 
     server_name localhost;
 
-
     server_name_in_redirect off;
-    client_max_body_size 16M;
+    client_max_body_size 128M;
     client_header_timeout 360;
     client_body_timeout 3600;
 
@@ -28,7 +27,7 @@ server {
         fastcgi_buffers 8 128k;
         fastcgi_buffer_size 256k;
 
-        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.4-fpm.sock;
     }
 
     location ~ /\.ht {
