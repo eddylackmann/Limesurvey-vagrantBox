@@ -1,5 +1,5 @@
 # Limesurvey-Vagrant
-Pre-configured Limesurvey (Latest Release) Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + Mysql + Postgresql + Nginx 
+Pre-configured LimeSurvey Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + Mysql + Postgresql + Nginx 
 
 # Pre-installation Requirements
 - Enable VT-x
