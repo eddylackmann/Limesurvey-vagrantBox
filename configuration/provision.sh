@@ -1,3 +1,6 @@
+#set PHP version / select 5.6 or 7.4
+phpVersion="7.4"
+
 #set Mysql login details
 MysqlRootPass="password"
 MysqlDBName="limesurvey"
@@ -67,20 +70,20 @@ echo " "
 echo " "
 echo " "
 echo "+---------------------------+"
-echo "+ install PHP 7.4 and libs  +"
+echo "+ install PHP $phpVersion and libs +"
 echo "+---------------------------+"
 echo " "
 echo " "
 echo " "
+sleep 3s;                   
+sudo apt-get -y install  "php$phpVersion-gd" "php$phpVersion-mysql" "php$phpVersion-curl" "php$phpVersion-ldap" "php$phpVersion-imap" "php$phpVersion-pgsql"  "php$phpVersion-xml"  "php$phpVersion-cli" "php$phpVersion-mbstring" "php$phpVersion-fpm" "php$phpVersion-opcache" "php$phpVersion-zip" 
 sleep 3s;
-apt-get install php7.4-cli php7.4-curl php7.4-mysql php7.4-fpm php7.4-gd php7.4-imap php7.4-pgsql php7.4-xml php7.4-ldap php7.4-mbstring php7.4-zip php7.4-soap -y
-sleep 3s;
-cp /var/www/configuration/php.ini /etc/php/7.4/fpm/php.ini
+cp /var/www/configuration/$phpVersion/php.ini /etc/php/$phpVersion/fpm/php.ini
 echo " "
 echo " "
 echo " "
 echo " "
-echo "PHP 7.4 - extensions & Libraries installed"
+echo "PHP $phpVersion- extensions & Libraries installed"
 echo "########################################"
 # Nginx
 echo " "
@@ -94,7 +97,7 @@ echo " "
 echo " "
 sleep 3s;
 apt-get -y install nginx
-cp /var/www/configuration/default /etc/nginx/sites-available/default
+cp /var/www/configuration/$phpVersion/default /etc/nginx/sites-available/default
 echo " "
 echo " "
 echo " "
@@ -116,7 +119,7 @@ sleep 3s;
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password '"$MysqlRootPass"
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password '"$MysqlRootPass"
 sudo apt-get -y install mysql-server
-sudo apt-get install php7.4-mysql
+sudo apt-get install "$phpVersion-mysql -y"
 echo " "
 echo " "
 echo " "
