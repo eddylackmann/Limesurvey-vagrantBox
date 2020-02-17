@@ -31,6 +31,7 @@ Pre-configured LimeSurvey Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + My
 - lsBranch (Defaul: Master).
 
 ## install
+- Make sure that the host name and ip are not in use (Virtual box) ohterwise change it in the vagrant file.
 - run "vagrant up" in the repo root path after cloning.
 
 # Packages 
