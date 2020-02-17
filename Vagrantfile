@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
   # Latest version of Ubuntu. Feel free to update it.
   config.vm.box = "ubuntu/bionic64"
 
-  #choose the php version you want to install 
+  #provision file (Depencies and software to install when the vagrant start for the first time)
   config.vm.provision "shell", path: "configuration/provision.sh"
 
   # This IP is reachable only from your computer, not from local network.
