@@ -158,7 +158,7 @@ echo "+----------------------+"
 echo " "
 echo " "
 echo " "
-git clone -b $lsBranch https://github.com/LimeSurvey/LimeSurvey.git /var/www/public
+#git clone -b $lsBranch https://github.com/LimeSurvey/LimeSurvey.git /var/www/public
 echo "Limesurvey installed "
 echo "#####################"
 sleep 3s;
