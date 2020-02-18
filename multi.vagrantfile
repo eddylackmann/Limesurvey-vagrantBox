@@ -8,11 +8,12 @@
 
 # Vagrant Configuration for Limesurvey
 Vagrant.configure("2") do |config|
-  # Latest version of Ubuntu. Feel free to update it.
-  config.vm.box = "ubuntu/bionic64"
-
+ 
   #LimeSurvey Master Machine
   config.vm.define "master" do |master|
+      # Latest version of Ubuntu. Feel free to update it.
+      master.vm.box = "ubuntu/bionic64"
+
       #Custom variable for installation
       ip                = "10.0.0.10"
       #php setup
@@ -48,6 +49,9 @@ Vagrant.configure("2") do |config|
 
   #LimeSurvey Develop Machine
   config.vm.define "develop" do |develop|
+    # Latest version of Ubuntu. Feel free to update it.
+    develop.vm.box = "ubuntu/bionic64"
+    
     #Custom variable for installation
     ip                = "10.0.0.20"
     #php setup
@@ -83,6 +87,9 @@ Vagrant.configure("2") do |config|
 
   #LimeSurvey LTS Machine
   config.vm.define "lts" do |lts|
+    #Latest version of Ubuntu. Feel free to update it.
+    lts.vm.box = "ubuntu/bionic64"
+    
     #Custom variable for installation
     ip                = "10.0.0.30"
     #php setup
