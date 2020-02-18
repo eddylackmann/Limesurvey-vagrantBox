@@ -22,18 +22,20 @@ Vagrant.configure("2") do |config|
   postgresPassword  = "password"
   #limesurvey setup
   limeSurveyBranch  = "master"
-
+  #option to clone repo
+  cloneRepo         = true 
+  
   # Latest version of Ubuntu. Feel free to update it.
   config.vm.box = "ubuntu/bionic64"
+  #share webfolder
+  config.vm.synced_folder "./limesurvey", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
+  #copy config
+  config.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
   #provision file (Depencies and software to install when the vagrant start for the first time)
-  config.vm.provision "shell", path: "configuration/provision.sh" ,  :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
+  config.vm.provision "shell", path: "provision/provision.sh" ,  :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch, cloneRepo]
   # This IP is reachable only from your computer, not from local network.
   config.vm.network "private_network", ip: ip
-  config.vm.hostname = "LimeSurveyVagrant"
-  # The shared folder /var/www/ is not reachable via Internet
-  # only /var/www/limesurvey is
-  
-  config.vm.synced_folder "./limesurvey", "/var/www", :mount_options => ["dmode=777", "fmode=666"],create:true
+  config.vm.hostname = "LimeSurvey"
   # Needed for Windows 10 host, so ubuntu package are reachable and we can install the VirtualBox Guest Additions
   config.vm.provider "virtualbox" do |vb|
       vb.name = "Limesurvey"

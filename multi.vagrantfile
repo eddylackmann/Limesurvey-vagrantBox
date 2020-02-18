@@ -28,15 +28,20 @@ Vagrant.configure("2") do |config|
       postgresPassword  = "password"
       #limesurvey setup
       limeSurveyBranch  = "master"
+      #option to clone repo
+      cloneRepo         = true 
 
+      #shared webfolder
+      master.vm.synced_folder "./master", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
+      #copy configuration
+      master.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
       #provision file 
-      master.vm.provision "shell", path: "configuration/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
+      master.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch, cloneRepo]
       #machine ip
       master.vm.network "private_network", ip: ip
       #machine hostname
       master.vm.hostname = "LimeSurveyMaster"
-      #shared webfolder
-      master.vm.synced_folder "./master", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
+      
       # Needed for Windows 10 host, so ubuntu package are reachable and we can install the VirtualBox Guest Additions
       master.vm.provider "virtualbox" do |vb|
         vb.name = "LimeSurveyMaster"
@@ -66,15 +71,20 @@ Vagrant.configure("2") do |config|
     postgresPassword  = "password"
     #limesurvey setup
     limeSurveyBranch  = "develop"
+    #option to clone repo
+    cloneRepo         = true
 
+    #shared webfolder
+    develop.vm.synced_folder "./develop", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
+    #copyconfiguration
+    develop.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
     #provision file 
-    develop.vm.provision "shell", path: "configuration/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
+    develop.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch,cloneRepo]
     #machine ip
     develop.vm.network "private_network", ip: ip
     #machine hostname
     develop.vm.hostname = "LimeSurveyDevelop"
-    #shared webfolder
-    develop.vm.synced_folder "./develop", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
+    
     # Needed for Windows 10 host, so ubuntu package are reachable and we can install the VirtualBox Guest Additions
     develop.vm.provider "virtualbox" do |vb|
       vb.name = "LimeSurveyDevelop"
@@ -104,15 +114,19 @@ Vagrant.configure("2") do |config|
     postgresPassword  = "password"
     #limesurvey setup
     limeSurveyBranch  = "3.x-LTS"
+    #option to clone repo
+    cloneRepo         = true
 
+    #shared webfolder
+    lts.vm.synced_folder "./lts", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
+    #copyconfiguration
+    lts.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
     #provision file 
-    lts.vm.provision "shell", path: "configuration/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
+    lts.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch,cloneRepo]
     #machine ip
     lts.vm.network "private_network", ip: ip
     #machine hostname
     lts.vm.hostname = "LimeSurveyLTS"
-    #shared webfolder
-    lts.vm.synced_folder "./lts", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
     # Needed for Windows 10 host, so ubuntu package are reachable and we can install the VirtualBox Guest Additions
     lts.vm.provider "virtualbox" do |vb|
       vb.name = "LimeSurveyLTS"
