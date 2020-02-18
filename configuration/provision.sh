@@ -171,8 +171,7 @@ echo "+----------------------+"
 echo " "
 echo " "
 echo " "
-sudo rm -rf /var/www/html 
- # Start nGinx
+ # Start nginx
 service nginx stop && service nginx start
 echo " "
 echo " "
