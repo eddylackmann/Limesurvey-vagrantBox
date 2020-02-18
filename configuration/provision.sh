@@ -1,21 +1,13 @@
-#set PHP version / select 5.6 or 7.4
-phpVersion="7.4"
-
-#set Mysql login details
-MysqlRootPass="password"
-MysqlDBName="limesurvey"
-MySqlDBUser="limesurvey"
-MySqlDBPassword="password"
-
-#set Ip Adresse
-myIp="10.0.0.10"
-
-#set Postgres dbname
-pgDB="limesurvey"
-pgPassword="password"
-
-#set Limesurvey branch 
-lsBranch="master"
+#map arguments
+myIp=$1
+phpVersion=$2
+MysqlRootPass=$3
+MysqlDBName=$4
+MySqlDBUser=$5
+MySqlDBPassword=$6
+pgDB=$7
+pgPassword=$8
+lsBranch=$9
 
 #init installer
 echo " "
@@ -23,7 +15,7 @@ echo " "
 echo " "
 echo " "
 echo "+-----------------------------------+"
-echo "+ WELCOME TO LIMESURVEY VAGRANT     +"
+echo "+ WELCOME TO LIMESURVEY VAGRANT BOX +"
 echo "+-----------------------------------+"
 echo " "
 echo " "
@@ -179,6 +171,7 @@ echo "+----------------------+"
 echo " "
 echo " "
 echo " "
+sudo rm -rf /var/www/html 
  # Start nGinx
 service nginx stop && service nginx start
 echo " "
