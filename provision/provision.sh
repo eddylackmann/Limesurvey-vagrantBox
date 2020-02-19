@@ -8,7 +8,6 @@ MySqlDBPassword=$6
 pgDB=$7
 pgPassword=$8
 lsBranch=$9
-cloneLS=$10
 
 #init installer
 echo " "
@@ -159,9 +158,7 @@ echo "+----------------------+"
 echo " "
 echo " "
 echo " "
-if $cloneLS; then
-    git clone -b $lsBranch https://github.com/LimeSurvey/LimeSurvey.git /var/www/public
-fi
+git clone -b $lsBranch https://github.com/LimeSurvey/LimeSurvey.git /var/www/public
 echo "Limesurvey installed "
 echo "#####################"
 sleep 3s;
