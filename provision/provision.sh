@@ -68,14 +68,18 @@ echo " "
 echo " "
 echo " "
 sleep 3s;                   
-sudo apt-get -y install  "php$phpVersion-gd" "php$phpVersion-mysql" "php$phpVersion-curl" "php$phpVersion-ldap" "php$phpVersion-imap" "php$phpVersion-pgsql"  "php$phpVersion-xml"  "php$phpVersion-cli" "php$phpVersion-mbstring" "php$phpVersion-fpm" "php$phpVersion-opcache" "php$phpVersion-zip" 
+sudo apt-get -y install  "php$phpVersion-gd" "php$phpVersion-mysql" "php$phpVersion-curl" "php$phpVersion-ldap" "php$phpVersion-imap" "php$phpVersion-pgsql"  "php$phpVersion-xml"  "php$phpVersion-cli" "php$phpVersion-mbstring" "php$phpVersion-fpm" "php$phpVersion-opcache" "php$phpVersion-zip php-xdebug" 
 sleep 3s;
-cp /var/www/configuration/$phpVersion/php.ini /etc/php/$phpVersion/fpm/php.ini
+cp /var/www/configuration/php.ini /etc/php/$phpVersion/fpm/php.ini
+sudo cp /var/www/configuration/xdebug.ini /etc/php/$phpVersion/fpm/conf.d/20-xdebug.ini > /dev/null 2>&1
+sleep 3s;
+sudo sed -i "s/.*xdebug.remote_host=0.0.0.0.*/xdebug.remote_host=$myIp/" /dev/null 2>&1
+
 echo " "
 echo " "
 echo " "
 echo " "
-echo "PHP $phpVersion- extensions & Libraries installed"
+echo "PHP $phpVersion extensions & Libraries installed"
 echo "########################################"
 # Nginx
 echo " "
@@ -166,13 +170,14 @@ echo " "
 echo " "
 echo " "
 echo "+----------------------+"
-echo "+ Restart Nginx        +"
+echo "+ Restart Services     +"
 echo "+----------------------+"
 echo " "
 echo " "
 echo " "
  # Start nginx
 service nginx stop && service nginx start
+service php$phpVersion-fpm restart
 echo " "
 echo " "
 echo " "
