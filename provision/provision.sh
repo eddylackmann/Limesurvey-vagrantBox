@@ -68,7 +68,7 @@ echo " "
 echo " "
 echo " "
 sleep 3s;                   
-sudo apt-get -y install  "php$phpVersion-gd" "php$phpVersion-mysql" "php$phpVersion-curl" "php$phpVersion-ldap" "php$phpVersion-imap" "php$phpVersion-pgsql"  "php$phpVersion-xml"  "php$phpVersion-cli" "php$phpVersion-mbstring" "php$phpVersion-fpm" "php$phpVersion-opcache" "php$phpVersion-zip php-xdebug" 
+sudo apt-get -y install  "php$phpVersion-gd" "php$phpVersion-mysql" "php$phpVersion-curl" "php$phpVersion-ldap" "php$phpVersion-imap" "php$phpVersion-pgsql"  "php$phpVersion-xml"  "php$phpVersion-cli" "php$phpVersion-mbstring" "php$phpVersion-fpm" "php$phpVersion-opcache" "php$phpVersion-zip" php-xdebug 
 sleep 3s;
 cp /var/www/configuration/php.ini /etc/php/$phpVersion/fpm/php.ini
 sudo cp /var/www/configuration/xdebug.ini /etc/php/$phpVersion/fpm/conf.d/20-xdebug.ini > /dev/null 2>&1
