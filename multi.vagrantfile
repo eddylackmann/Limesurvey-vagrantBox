@@ -28,15 +28,13 @@ Vagrant.configure("2") do |config|
       postgresPassword  = "password"
       #limesurvey setup
       limeSurveyBranch  = "master"
-      #option to clone repo
-      cloneRepo         = true 
-
+     
       #shared webfolder
       master.vm.synced_folder "./master", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
       #copy configuration
       master.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
       #provision file 
-      master.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch, cloneRepo]
+      master.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
       #machine ip
       master.vm.network "private_network", ip: ip
       #machine hostname
@@ -71,15 +69,13 @@ Vagrant.configure("2") do |config|
     postgresPassword  = "password"
     #limesurvey setup
     limeSurveyBranch  = "develop"
-    #option to clone repo
-    cloneRepo         = true
 
     #shared webfolder
     develop.vm.synced_folder "./develop", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
     #copyconfiguration
     develop.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
     #provision file 
-    develop.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch,cloneRepo]
+    develop.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
     #machine ip
     develop.vm.network "private_network", ip: ip
     #machine hostname
@@ -114,15 +110,13 @@ Vagrant.configure("2") do |config|
     postgresPassword  = "password"
     #limesurvey setup
     limeSurveyBranch  = "3.x-LTS"
-    #option to clone repo
-    cloneRepo         = true
 
     #shared webfolder
     lts.vm.synced_folder "./lts", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
     #copyconfiguration
     lts.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
     #provision file 
-    lts.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch,cloneRepo]
+    lts.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
     #machine ip
     lts.vm.network "private_network", ip: ip
     #machine hostname
