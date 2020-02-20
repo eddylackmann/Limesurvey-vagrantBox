@@ -153,16 +153,22 @@ echo " "
 echo " "
 echo " "
 sleep 3s;
+echo "+----------------------+"
+echo "+ Cleaning up          +"
+echo "+----------------------+"
 echo " "
 echo " "
+sudo rm -rf /var/www/configuration  > /dev/null 2>&1
+sudo rm -rf /var/www/html > /dev/null 2>&1
 echo " "
+sleep 3s;
 echo "+----------------------+"
 echo "+ install Limesurvey   +"
 echo "+----------------------+"
 echo " "
 echo " "
 echo " "
-git clone -b $lsBranch https://github.com/LimeSurvey/LimeSurvey.git /var/www/public
+cd /var/www && git clone -b $lsBranch https://github.com/LimeSurvey/LimeSurvey.git .
 echo "Limesurvey installed "
 echo "#####################"
 sleep 3s;
@@ -201,7 +207,6 @@ echo " "
 echo " "
 echo " "
 echo "You can connect to Webserver at: http://$myIp "
-echo "the webroot is /public "
 echo " "
 echo " "
 echo " "

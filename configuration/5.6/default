@@ -9,7 +9,7 @@ server {
     client_body_timeout 3600;
 
 
-    root /var/www/public;
+    root /var/www/;
     index index.php;
 
 
