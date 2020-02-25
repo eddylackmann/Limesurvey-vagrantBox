@@ -43,6 +43,9 @@ Pre-configured LimeSurvey Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + My
 - run "vagrant up" in the repo root directory. 
 
 # XDEBUG SETUP FOR VSCODE 
+- Install PHP Debug extension and reload/restart VSCode.
+- Install an XDebug helper for your browser
+- Add following code to your xdebug configuration
 ```
 {
   "type": "php",
