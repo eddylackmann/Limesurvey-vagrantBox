@@ -42,6 +42,19 @@ Pre-configured LimeSurvey Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + My
 - Make sure that the host name and ip (for each machine) are different and not in use (Virtual box) ohterwise change it in the Vagrantfile.
 - run "vagrant up" in the repo root directory. 
 
+# XDEBUG SETUP FOR VSCODE 
+```
+{
+  "type": "php",
+  "request": "launch",
+  "name": "Listen for XDebug",
+  "pathMappings": {
+    "/var/www": "${workspaceRoot}",
+  },
+  "port": 9000,
+  "log": true,
+}, 
+```
 # Packages 
 - Nginx 
 - Php7.4 | Php5.6  + Depencies + Libraries
