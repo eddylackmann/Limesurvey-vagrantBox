@@ -77,7 +77,8 @@ sleep 3s;
 sudo sed -i "s/.*xdebug.remote_host=0.0.0.0.*/xdebug.remote_host=$myIp/" /etc/php/$phpVersion/fpm/conf.d/20-xdebug.ini > /dev/null 2>&1
 sleep 5s; 
 sudo sed -i "s/.*xdebug.idekey=VSCODE.*/xdebug.idekey=$ideKey/"  /etc/php/$phpVersion/fpm/conf.d/20-xdebug.ini > /dev/null 2>&1
-
+sleep 3s;
+sudo sed -i 's/\r//g' /etc/php/$phpVersion/fpm/conf.d/20-xdebug.ini
 echo " "
 echo " "
 echo " "
