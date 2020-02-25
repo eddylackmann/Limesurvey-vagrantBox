@@ -8,7 +8,7 @@ MySqlDBPassword=$6
 pgDB=$7
 pgPassword=$8
 lsBranch=$9
-ideKey=$10
+ideKey=${10}
 
 #init installer
 echo " "
