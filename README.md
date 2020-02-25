@@ -52,7 +52,7 @@ Pre-configured LimeSurvey Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + My
   "request": "launch",
   "name": "Listen for XDebug",
   "pathMappings": {
-    "/var/www": "${workspaceRoot}",
+    "/var/www": "${workspaceFolder}",
   },
   "port": 9000,
   "log": true,
