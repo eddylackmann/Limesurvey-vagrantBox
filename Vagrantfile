@@ -22,6 +22,8 @@ Vagrant.configure("2") do |config|
   postgresPassword  = "password"
   #limesurvey setup
   limeSurveyBranch  = "master"
+  #IDE KEY for Xdebug
+  ideKey  = "VSCODE"
   
   # Latest version of Ubuntu. Feel free to update it.
   config.vm.box = "ubuntu/bionic64"
@@ -30,7 +32,7 @@ Vagrant.configure("2") do |config|
   #copy config
   config.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
   #provision file (Depencies and software to install when the vagrant start for the first time)
-  config.vm.provision "shell", path: "provision/provision.sh" ,  :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
+  config.vm.provision "shell", path: "provision/provision.sh" ,  :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch,ideKey]
   
   #custom port mapping 
   #config.vm.network "forwarded_port", guest: 80, host: 80   webserver localhost

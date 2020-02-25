@@ -28,13 +28,15 @@ Vagrant.configure("2") do |config|
       postgresPassword  = "password"
       #limesurvey setup
       limeSurveyBranch  = "master"
+      #IDE KEY for Xdebug
+      ideKey  = "VSCODE"
      
       #shared webfolder
       master.vm.synced_folder "./master", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
       #copy configuration
       master.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
       #provision file 
-      master.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
+      master.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch,ideKey]
       #machine ip
       master.vm.network "private_network", ip: ip
       #machine hostname
@@ -69,13 +71,15 @@ Vagrant.configure("2") do |config|
     postgresPassword  = "password"
     #limesurvey setup
     limeSurveyBranch  = "develop"
+    #IDE KEY for Xdebug
+    ideKey  = "VSCODE"
 
     #shared webfolder
     develop.vm.synced_folder "./develop", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
     #copyconfiguration
     develop.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
     #provision file 
-    develop.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
+    develop.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch,ideKey]
     #machine ip
     develop.vm.network "private_network", ip: ip
     #machine hostname
@@ -110,13 +114,15 @@ Vagrant.configure("2") do |config|
     postgresPassword  = "password"
     #limesurvey setup
     limeSurveyBranch  = "3.x-LTS"
+    #IDE KEY for Xdebug
+    ideKey  = "VSCODE"
 
     #shared webfolder
     lts.vm.synced_folder "./lts", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
     #copyconfiguration
     lts.vm.provision "file", source: "./configuration", destination: "/var/www/configuration"
     #provision file 
-    lts.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch]
+    lts.vm.provision "shell", path: "provision/provision.sh", :args => [ip, phpversion,mysqlRootPass,mysqlDBName,mySqlDBUser,mySqlDBPassword,postgresDB,postgresPassword,limeSurveyBranch,ideKey]
     #machine ip
     lts.vm.network "private_network", ip: ip
     #machine hostname
