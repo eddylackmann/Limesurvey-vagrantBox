@@ -29,6 +29,8 @@ Pre-configured LimeSurvey Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + My
 - postgresPassword (Default: password).
 ### Limesurvey
 - limeSurveyBranch (Defaul: Master).
+### Xdebug ide Key
+- ide key of your code editor for Xdebug
 
 ## install
 - Make sure that the host name and ip are not in use (Virtual box) ohterwise change it in the vagrant file.
