@@ -117,7 +117,6 @@ sleep 3s;
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password '"$MysqlRootPass"
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password '"$MysqlRootPass"
 sudo apt-get -y install mysql-server
-sudo apt-get install "$phpVersion-mysql -y"
 echo " "
 echo " "
 echo " "
