@@ -40,7 +40,7 @@ echo " "
 echo " "
 echo " "
 echo "Packages updated"
-echo "################"
+echo "#################"
 # VBox additions
 echo " "
 echo " "
@@ -84,7 +84,7 @@ echo " "
 echo " "
 echo " "
 echo "PHP $phpVersion extensions & Libraries installed"
-echo "########################################"
+echo "################################################"
 # Nginx
 echo " "
 echo " "
@@ -119,12 +119,22 @@ sleep 3s;
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password '"$MysqlRootPass"
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password '"$MysqlRootPass"
 sudo apt-get -y install mysql-server
-echo " "
-echo " "
-echo " "
-echo " "
 echo "MySql installed "
-echo "###############"
+
+echo "+----------------------+"
+echo "+ install PhpMyAdmin   +"
+echo "+----------------------+"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/internal/skip-preseed boolean true"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/reconfigure-webserver multiselect"
+sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean false"
+
+sudo apt-get -y install phpmyadmin
+echo " "
+echo " "
+echo " "
+echo " "
+echo "PhpMyAdmin installed"
+echo "####################"
 sleep 3s;
 # pgsql server
 echo " "
@@ -146,7 +156,22 @@ echo " "
 echo " "
 echo "Postgresql installed "
 echo "####################"
+echo "+---------------------------+"
+echo "+ install PgAdmin           +"
+echo "+---------------------------+"
+
+
+sudo apt-get install -y  phppgadmin
 sleep 3s;
+sudo rm /etc/phppgadmin/config.inc.php
+
+sleep 5s
+cp /var/www/configuration/pgadmin.config.php /etc/phppgadmin/config.inc.php
+echo "PgAdmin installed "
+echo "####################"
+
+
+
 #setup database
 mysql -u root -p$MysqlRootPass -e "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));"
 mysql -u root -p$MysqlRootPass -e "CREATE DATABASE $MysqlDBName;"
@@ -156,6 +181,7 @@ echo " "
 echo " "
 echo " "
 sleep 3s;
+
 echo "+----------------------+"
 echo "+ Cleaning up          +"
 echo "+----------------------+"
@@ -210,6 +236,7 @@ echo " "
 echo " "
 echo " "
 echo "You can connect to Webserver at: http://$myIp "
+echo "You can acces the mysql database management tool (phpmyadmin) at: http://$myIp/phpmyadmin "
 echo " "
 echo " "
 echo " "

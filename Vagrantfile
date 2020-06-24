@@ -3,7 +3,7 @@
 
 # Developer: Eddy Lackmann
 # Github:https://github.com/eddylackmann 
-# Last update: 18 february 2020
+# Last update: 24 June 2020
 # Email: a.eddy@hotmail.de
 
 # Vagrant Configuration for Limesurvey

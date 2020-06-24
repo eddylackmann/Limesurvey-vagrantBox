@@ -1,5 +1,8 @@
 # Limesurvey-Vagrant
 Pre-configured LimeSurvey Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + Mysql + Postgresql + Nginx 
+Additional modules: 
+ - PhpMyAdmin (To manage the Databases via webbrowser )
+ - phpPgAdmin (To manage Postgresql Databases via webbrowser )
 
 # Pre-installation Requirements
 - Enable VT-x
@@ -63,6 +66,8 @@ Pre-configured LimeSurvey Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + My
 - Php7.4 | Php5.6  + Depencies + Libraries
 - Mysql server
 - Postgresql server
+- PhpMyAdmin
+- PhpPgAdmin
 - Latest version (Master) of Limesurvey 
 
 # Default Mysql Login
@@ -70,11 +75,13 @@ Pre-configured LimeSurvey Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + My
 - MySql User = "limesurvey"
 - Mysql Root Password = "password"
 - MySql User Password = "password"
+- Management UI: http://your_ip/phpmyadmin (Default: http://10.0.0.10/phpmyadmin)
 
 # Default Postgresql Login
 - pg DB = "limesurvey"
 - pg User = "postgres"
 - pg Password = "password"
+- Management UI: http://your_ip/phppgadmin (Default: http://10.0.0.10/phppgadmin)
 
 # Default IP address of the webserver after installation
 - 10.0.0.10
