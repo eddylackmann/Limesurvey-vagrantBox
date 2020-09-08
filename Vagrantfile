@@ -3,7 +3,7 @@
 
 # Developer: Eddy Lackmann
 # Github:https://github.com/eddylackmann 
-# Last update: 24 June 2020
+# Last update: 08th Sept 2020
 # Email: a.eddy@hotmail.de
 
 # Vagrant Configuration for Limesurvey
@@ -26,7 +26,10 @@ Vagrant.configure("2") do |config|
   ideKey  = "VSCODE"
   
   # Latest version of Ubuntu. Feel free to update it.
-  config.vm.box = "ubuntu/bionic64"
+
+  #config.vm.box = "ubuntu/bionic64" // Ubuntu 18 
+  config.vm.box = "ubuntu/focal64"
+
   #share webfolder
   config.vm.synced_folder "./limesurvey", "/var/www", :mount_options => ["dmode=777", "fmode=666"], create:true
   #copy config
@@ -47,6 +50,10 @@ Vagrant.configure("2") do |config|
       vb.name = "Limesurvey"
       vb.memory = 2096
       vb.cpus = 2
+
+      #create serial port / Needed for ubuntu 20.04
+      vb.customize [ "modifyvm", :id, "--uartmode1", "file", File::NULL ]
+
       #enable this line on windows machine (Optional).
       #vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
