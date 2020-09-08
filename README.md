@@ -1,5 +1,5 @@
 # Limesurvey-Vagrant
-Pre-configured LimeSurvey Vagrant Box based on Ubuntu Bionic 64bit + PHP7.4 + Mysql + Postgresql + Nginx 
+Pre-configured LimeSurvey Vagrant Box based on Ubuntu focal 64bit + PHP7.4 + Mysql + Postgresql + Nginx 
 Additional modules: 
  - PhpMyAdmin (To manage the Databases via webbrowser )
  - phpPgAdmin (To manage Postgresql Databases via webbrowser )
